@@ -8,6 +8,8 @@ var promises = [],
     match = {},
     calendars = {};
 
+var outputDir = process.argv[2] || __dirname;
+
 for(promo in students) {
     promises.push(new Promise(function(sent) {
         match[students[promo][0].login] = promo;
@@ -50,6 +52,6 @@ Promise.all(promises).then(function() {
     }
     Promise.all(promises).then(function() {
         ics = exams.toString();
-        fs.writeFileSync(__dirname + '/exams.ics', ics);
+        fs.writeFileSync(outputDir + '/exams.ics', ics);
     });
 });
