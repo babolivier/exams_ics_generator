@@ -1,0 +1,5 @@
+node_modules
+subscription_detector
+*.ics
+*.json
+
